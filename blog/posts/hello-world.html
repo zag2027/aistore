@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="存储深处的开篇文章：从字节到系统，建立一条理解存储的完整路径。">
+  <title>从字节到系统：为什么我想把存储问题写深 · 存储深处</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="../index.html"><span class="brand-mark">S</span><span>存储深处</span></a><a class="github" href="https://github.com/zag2027" target="_blank" rel="noreferrer">GitHub ↗</a></div></header>
+  <main class="shell post">
+    <p class="eyebrow">开篇　/　2026 · 08 · 29</p>
+    <h1>从字节到系统：<br>为什么我想把存储问题写深</h1>
+    <p class="lead">存储不是磁盘 API 的集合，而是一条从应用语义延伸到介质边界的完整链路。性能、可靠性和成本，最终都会在这条链路上相遇。</p>
+
+    <p>你好，我是 zag2027。这是“存储深处（Deep Storage）”的第一篇文章。</p>
+    <p>我一直觉得，存储系统最迷人的地方在于它同时连接了抽象与现实：上层是业务对象、事务和模型，下层是页、日志、队列、网络以及真实的介质边界。一个看似简单的读写请求，往往要穿过缓存、索引、内存管理、并发控制、文件系统和设备协议，最后才变成可以持久化的比特。</p>
+
+    <h2>为什么要“写深”</h2>
+    <p>很多文章会告诉我们某个组件“是什么”，但高性能存储更需要回答“为什么这样设计”：一次拷贝究竟发生在哪里？一个锁保护的边界是什么？尾延迟从哪一级队列开始放大？崩溃发生时，哪些状态已经可见，哪些状态仍然只是内存中的承诺？</p>
+    <p>我希望在这里保留这些问题的推导过程，用源码、时序图、基准测试和故障实验，把结论放回它产生的上下文中。对我而言，性能不是一个孤立的数字，可靠性也不是一句口号；它们都是系统结构在压力下呈现出来的结果。</p>
+
+    <h2>这里会写什么</h2>
+    <p>“存储深处”主要关注五条相互交汇的路径：</p>
+    <p><strong>分布式存储</strong>：数据分片、复制、一致性协议、故障检测与恢复；<br>
+    <strong>AI 存储</strong>：训练数据管线、检查点、向量与张量数据，以及吞吐和成本之间的平衡；<br>
+    <strong>高性能 C++</strong>：异步执行、并发模型、内存布局、零拷贝和性能剖析；<br>
+    <strong>存储引擎</strong>：日志结构、LSM/B-tree、缓存、压缩、后台合并与持久化语义；<br>
+    <strong>并行文件系统</strong>：元数据扩展、数据布局、并行 I/O 和大规模节点下的协调。</p>
+
+    <h2>我的记录方式</h2>
+    <p>每个主题尽量沿着“问题 → 模型 → 实现 → 测量 → 复盘”的顺序展开。先明确系统承诺，再看关键数据结构和数据路径；随后用可复现的实验验证假设，最后记录那些没有写进设计文档的边界条件。</p>
+    <p>这也意味着，文章可能会包含不成熟的猜想、失败的实验和被推翻的结论。它们同样有价值，因为理解一个系统，往往从知道“哪里不成立”开始。</p>
+
+    <h2>从今天开始</h2>
+    <p>如果你也关心数据如何移动、如何被组织、如何在故障中幸存，欢迎来到这里。接下来，我会从熟悉的 C++ 与异步执行切入，逐步走向存储引擎、分布式系统和 AI 数据基础设施的更深处。</p>
+    <p>愿我们不仅使用存储系统，也真正理解它。</p>
+    <a class="back" href="../index.html">← 返回首页</a>
+  </main>
+  <footer class="shell footer"><span>© 2026 zag2027</span><span>存储深处 · Deep Storage</span></footer>
+</body>
+</html>
